@@ -1,0 +1,34 @@
+Disease Name	Cohort
+Adrenocortical carcinoma	ACC
+Bladder urothelial carcinoma	BLCA
+Breast invasive carcinoma	BRCA
+Cervical and endocervical cancers	CESC
+Cholangiocarcinoma	CHOL
+Colon adenocarcinoma	COAD
+Lymphoid Neoplasm Diffuse Large B-cell Lymphoma	DLBC
+Esophageal carcinoma	ESCA
+Glioblastoma multiforme	GBM
+Head and Neck squamous cell carcinoma	HNSC
+Kidney Chromophobe	KICH
+Kidney renal clear cell carcinoma	KIRC
+Kidney renal papillary cell carcinoma	KIRP
+Acute Myeloid Leukemia	LAML
+Brain Lower Grade Glioma	LGG
+Liver hepatocellular carcinoma	LIHC
+Lung adenocarcinoma	LUAD
+Lung squamous cell carcinoma	LUSC
+Mesothelioma	MESO
+Ovarian serous cystadenocarcinoma	OV
+Pancreatic adenocarcinoma	PAAD
+Pheochromocytoma and Paraganglioma	PCPG
+Prostate adenocarcinoma	PRAD
+Rectum adenocarcinoma	READ
+Sarcoma	SARC
+Skin Cutaneous Melanoma	SKCM
+Stomach adenocarcinoma	STAD
+Testicular Germ Cell Tumors	TGCT
+Thyroid carcinoma	THCA
+Thymoma	THYM
+Uterine Corpus Endometrial Carcinoma	UCEC
+Uterine Carcinosarcoma	UCS
+Uveal Melanoma	UVM
