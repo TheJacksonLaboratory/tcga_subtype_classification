@@ -53,4 +53,15 @@ Project Organization
 
 --------
 
+Running iPython/Jupyter notebooks
+---------------------------------
+Run
+
+```bash
+jupyter notebook notesbooks/notebook_name.ipynb
+```
+or, alternatively, run `jupyter notebook` and navigate using the file browser to
+`notebooks/notebook_name.ipynd`.
+
+
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
