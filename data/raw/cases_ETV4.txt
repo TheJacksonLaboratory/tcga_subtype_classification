@@ -1,0 +1,18 @@
+cancer_study_identifier: prad_tcga_pub
+stable_id: prad_tcga_pub_ETV4
+case_list_name: ETV4 subtype
+case_list_ids:
+TCGA-EJ-5511
+TCGA-CH-5762
+TCGA-CH-5763
+TCGA-CH-5771
+TCGA-EJ-A7NM
+TCGA-G9-6371
+TCGA-HC-7749
+TCGA-HC-A76W
+TCGA-HI-7168
+TCGA-KC-A7FD
+TCGA-M7-A725
+TCGA-V1-A8WV
+TCGA-V1-A8X3
+TCGA-XQ-A8TA

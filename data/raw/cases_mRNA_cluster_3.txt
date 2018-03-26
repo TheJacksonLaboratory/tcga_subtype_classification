@@ -1,0 +1,28 @@
+cancer_study_identifier: kirp_tcga
+stable_id: kirp_tcga_rna_seq_v2_mrna
+case_list_name: mRNA Cluster 3
+case_list_description: all mRNA cluster 3 samples
+case_list_ids:
+TCGA-A4-7286
+TCGA-A4-7997
+TCGA-A4-A48D
+TCGA-B1-A657
+TCGA-B3-4103
+TCGA-B9-5156
+TCGA-B9-A5W8
+TCGA-BQ-5881
+TCGA-BQ-5886
+TCGA-BQ-7045
+TCGA-BQ-7046
+TCGA-BQ-7059
+TCGA-BQ-7060
+TCGA-BQ-7062
+TCGA-DW-7838
+TCGA-DW-7963
+TCGA-DZ-6134
+TCGA-G7-6796
+TCGA-HE-7128
+TCGA-HE-A5NF
+TCGA-HE-A5NL
+TCGA-IA-A40U
+TCGA-IZ-A6M8
