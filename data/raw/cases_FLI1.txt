@@ -1,0 +1,8 @@
+cancer_study_identifier: prad_tcga_pub
+stable_id: prad_tcga_pub_FLI1
+case_list_name: FLI1 subtype
+case_list_ids:
+TCGA-V1-A8WN
+TCGA-CH-5738
+TCGA-H9-7775
+TCGA-HC-7079

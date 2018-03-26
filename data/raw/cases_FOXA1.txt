@@ -1,0 +1,13 @@
+cancer_study_identifier: prad_tcga_pub
+stable_id: prad_tcga_pub_FOXA1
+case_list_name: FOXA1 subtype
+case_list_ids:
+TCGA-EJ-7789
+TCGA-CH-5737
+TCGA-EJ-5494
+TCGA-HC-7210
+TCGA-HC-8265
+TCGA-J9-A8CP
+TCGA-KK-A8IB
+TCGA-KK-A8IG
+TCGA-YL-A9WI
