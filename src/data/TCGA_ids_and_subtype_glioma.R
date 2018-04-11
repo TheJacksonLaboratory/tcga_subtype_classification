@@ -1,18 +1,18 @@
 lgr1.cases <-scan("data/raw/cases_LGr1.txt",what="character")
 lgr1.ids <- lgr1.cases[grep("TCGA", lgr1.cases)]
-lgr1.dat <- data.frame(patientid=lgr1.ids, subtype="most upregulate TERT", cancertype="Glioma")
+lgr1.dat <- data.frame(patientid=lgr1.ids, subtype="LGr1", cancertype="Glioma")
 
 lgr2.cases <- scan("data/raw/cases_LGr2.txt",what="character")
 lgr2.ids <- lgr2.cases[grep("TCGA", lgr2.cases)]
-lgr2.dat <- data.frame(patientid=lgr2.ids, subtype="some upregulate TERT", cancertype="Glioma")
+lgr2.dat <- data.frame(patientid=lgr2.ids, subtype="LGr2", cancertype="Glioma")
 
 lgr3.cases <- scan("data/raw/cases_LGr3.txt",what="character")
 lgr3.ids <- lgr3.cases[grep("TCGA", lgr3.cases)]
-lgr3.dat <- data.frame(patientid=lgr3.ids, subtype="TP53 mutations", cancertype="Glioma")
+lgr3.dat <- data.frame(patientid=lgr3.ids, subtype="LGr3", cancertype="Glioma")
 
 lgr4.cases <- scan("data/raw/cases_LGr4.txt", what="character")
 lgr4.ids <- lgr4.cases[grep("TCGA", lgr4.cases)]
-lgr4.dat <- data.frame(patientid=lgr4.ids, subtype="IDH wild-type", cancertype="Glioma")
+lgr4.dat <- data.frame(patientid=lgr4.ids, subtype="LGr4", cancertype="Glioma")
 
 all_glioma <- rbind(lgr1.dat, lgr2.dat, lgr3.dat, lgr4.dat)
 all_glioma[order(all_glioma$patientid), ]
