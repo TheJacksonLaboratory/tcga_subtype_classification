@@ -1,18 +1,18 @@
 m1.cases <- scan("data/raw/cases_m1.txt",what="character")
 m1.ids <- m1.cases[grep("TCGA", m1.cases)]
-m1.dat <- data.frame(patientid=m1.ids, subtype="Chromatin remodeling processes",cancertype="CLear cell renal")
+m1.dat <- data.frame(patientid=m1.ids, subtype="m1",cancertype="Clear cell renal")
 
 m2.cases <- scan("data/raw/cases_m2.txt",what="character")
 m2.ids <- m2.cases[grep("TCGA", m2.cases)]
-m2.dat <- data.frame(patientid=m2.ids, subtype="High expression of miR-21",cancertype="CLear cell renal")
+m2.dat <- data.frame(patientid=m2.ids, subtype="m2",cancertype="Clear cell renal")
 
 m3.cases <- scan("data/raw/cases_m3.txt",what="character")
 m3.ids <- m3.cases[grep("TCGA", m3.cases)]
-m3.dat <- data.frame(patientid=m3.ids, subtype="PTEN mutations and CDKN2A deletions",cancertype="CLear cell renal")
+m3.dat <- data.frame(patientid=m3.ids, subtype="m3",cancertype="Clear cell renal")
 
 m4.cases <- scan("data/raw/cases_m4.txt",what="character")
 m4.ids <- m4.cases[grep("TCGA", m4.cases)]
-m4.dat <- data.frame(patientid=m4.ids, subtype="BAP1 and mTOR mutations",cancertype="CLear cell renal")
+m4.dat <- data.frame(patientid=m4.ids, subtype="m4",cancertype="Clear cell renal")
 
 all_kirc <- rbind(m1.dat, m2.dat, m3.dat, m4.dat)
 all_kirc[order(all_kirc$patientid), ]

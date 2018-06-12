@@ -1,14 +1,14 @@
 c1_kirp.cases <- scan("data/raw/cases_mRNA_cluster_1.txt",what="character")
 c1_kirp.ids <- c1_kirp.cases[grep("TCGA", c1_kirp.cases)]
-c1_kirp.dat <- data.frame(patientid=c1_kirp.ids, subtype="type I papillary and MET mutations",cancertype="Papillary renal")
+c1_kirp.dat <- data.frame(patientid=c1_kirp.ids, subtype="mRNA Cluster 1",cancertype="Papillary renal")
 
 c2_kirp.cases <- scan("data/raw/cases_mRNA_cluster_2.txt",what="character")
 c2_kirp.ids <- c2_kirp.cases[grep("TCGA", c2_kirp.cases)]
-c2_kirp.dat <- data.frame(patientid=c2_kirp.ids, subtype="Mostly type II papillary or unclassified",cancertype="Papillary renal")
+c2_kirp.dat <- data.frame(patientid=c2_kirp.ids, subtype="mRNA Cluster 2",cancertype="Papillary renal")
 
 c3_kirp.cases <- scan("data/raw/cases_mRNA_cluster_3.txt", what="character")
 c3_kirp.ids <- c3_kirp.cases[grep("TCGA", c3_kirp.cases)]
-c3_kirp.dat <- data.frame(patientid=c3_kirp.ids, subtype="Best survival",cancertype="Papillary renal")
+c3_kirp.dat <- data.frame(patientid=c3_kirp.ids, subtype="mRNA Cluster 3",cancertype="Papillary renal")
 
 all_kirp <-rbind(c1_kirp.dat, c2_kirp.dat, c3_kirp.dat)
 all_kirp_order <- all_kirp[order(all_kirp$patientid), ]
