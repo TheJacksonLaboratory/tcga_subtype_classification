@@ -1,6 +1,6 @@
 library(Biobase)
 
-data_directory = "../../data/raw/"
+data_directory = "data/raw/"
 
 infiles <- list.files(pattern="rdata",data_directory,full=T)
 

@@ -3,7 +3,7 @@
 library(feather)
 
 # loads combined.eset
-load('../../data/raw/combined_data.rdata')
+load('data/raw/combined_data.rdata')
 
 head(combined.eset@phenoData)
 
@@ -19,6 +19,6 @@ expr <- as.data.frame(exprs(combined.eset))
 expr$index <- rownames(expr)
 rownames(expr) <- NULL
 
-write_feather(expr, '../../data/raw/combined_expr.feather')
-write_feather(samples, '../../data/raw/combined_samp.feather')
-write_feather(features, '../../data/raw/combined_feat.feather')
+write_feather(expr, 'data/raw/combined_expr.feather')
+write_feather(samples, 'data/raw/combined_samp.feather')
+write_feather(features, 'data/raw/combined_feat.feather')

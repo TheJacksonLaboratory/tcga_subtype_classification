@@ -1,7 +1,7 @@
 
 library(Biobase)
 
-data_directory = "../../data/raw/"
+data_directory = "data/raw/"
 zipped.files <- list.files(data_directory,pattern="gz",full=T)
 for(i in 1:length(zipped.files))
 {
@@ -15,7 +15,7 @@ for(i in 1:length(gdac.dirs))
 {
 	infile <- list.files(gdac.dirs[i],pattern="RSEM",full=T)
 	rsem.file <- list.files(gdac.dirs[i],pattern="RSEM")
-	type <- strsplit(rsem.file,".",fixed=T)[[1]][1]	
+	type <- strsplit(rsem.file,".",fixed=T)[[1]][1]
 	exp <- read.table(infile,sep="\t",header=F,skip=2,row.names=1)
 	hdr <- read.table(infile,sep="\t",header=T,row.names=1,nrows=2)
 	colnames(exp) <- colnames(hdr)
