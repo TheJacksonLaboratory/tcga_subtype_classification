@@ -67,6 +67,7 @@ endif
 ## Test python environment is setup correctly
 test_environment: install_conda_deps
 	$(PYTHON_INTERPRETER) test_environment.py
+	R CMD javareconf > /dev/null 2>&1 || true
 	$(R_INTERPRETER) test_environment.R
 
 ## Install conda packages
