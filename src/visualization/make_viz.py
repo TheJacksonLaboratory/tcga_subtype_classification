@@ -54,7 +54,7 @@ FIG_HEIGHT_MAX = 8.75
 
 
 ## Data Functions
-primary_data = read_table('../../data/img/cancer_data.csv')
+primary_data = read_table('data/img/cancer_data.csv')
 extra_rows = {
     'KIRC/KIRP/KIRH': primary_data.loc['KIRC',:].values,
     'LUAD/LUSC': primary_data.loc['LUAD',:].values,
@@ -64,10 +64,10 @@ for k, v in extra_rows.items():
     primary_data.loc[k, :] = v
 primary_data = primary_data.iloc[np.lexsort([primary_data.index, primary_data.organ_system]),:]
 
-output_dir = '../../manuscript/figs_local'
-human_body = plt.imread('../../data/img/Human_body_silhouette.png')
+output_dir = 'manuscript/figs_local'
+human_body = plt.imread('data/img/Human_body_silhouette.png')
 
-tumor_data_gse18549 = pd.read_csv('../../models/primary_type_ext_val/gse18549_sample_anns.csv',
+tumor_data_gse18549 = pd.read_csv('data/external/gse18549_sample_anns.csv',
                                   header=0, index_col=0)[['primary tumor site:ch1',
                                                           'metastatic tumor site:ch1']]
 
@@ -201,7 +201,7 @@ def _construct_metrics(contingency, metrics=['pos pred value', 'sensitivity', 's
 
 def load_subtype_metrics(directory, metrics=['pos pred value', 'sensitivity', 'specificity']):
     table_files = glob.glob(os.path.join(directory, '*table.csv'))
-    metric_files = glob.glob(os.path.join(directory, '*metrics'))
+    metric_files = glob.glob(os.path.join(directory, '*metrics.csv'))
 
     ms = []
     for table_file, metric_file in zip(table_files, metric_files):
@@ -567,28 +567,28 @@ def median_metrics(name, table_file, metrics_file, sort=True, group=True, blackl
 
 def compute_metrics():
     # Main
-    table_file = '../../models/primary_type/rf_contingency.csv'
-    metrics_file = '../../models/primary_type/rf_metrics.csv'
+    table_file = 'models/primary_type/rf_contingency.csv'
+    metrics_file = 'models/primary_type/rf_metrics.csv'
     median_metrics('Main', table_file, metrics_file)
 
     # External validation
-    metrics_file = '../../primary_type_ext_val/gse2109_metrics.csv'
-    table_file = '../../models/primary_type_ext_val/gse2109_contingency.csv'
+    metrics_file = 'models/primary_type_ext_val/gse2109_metrics.csv'
+    table_file = 'models/primary_type_ext_val/gse2109_contingency.csv'
     median_metrics('External validation', table_file, metrics_file, blacklist=['LGG/GBM'])
 
     # Metastasis
-    metrics_file = '../../models/primary_type_ext_val/gse18549_metrics.csv'
-    table_file = '../../models/primary_type_ext_val/gse18549_contingency.csv'
+    metrics_file = 'models/primary_type_ext_val/gse18549_metrics.csv'
+    table_file = 'models/primary_type_ext_val/gse18549_contingency.csv'
     median_metrics('Metastasis', table_file, metrics_file)
 
 
     # PDX
-    metrics_file = '../../models/primary_type_ext_val/pdx_metrics_new.csv'
-    table_file = '../../models/primary_type_ext_val/pdx_contingency_new.csv'
+    metrics_file = 'models/primary_type_ext_val/pdx_metrics_new.csv'
+    table_file = 'models/primary_type_ext_val/pdx_contingency_new.csv'
     median_metrics('PDX', table_file, metrics_file)#, blacklist=['OV'])
 
     # Subtypes
-    subtype_directory = '../../models/subtype/'
+    subtype_directory = 'models/subtype/'
     subtype_data = load_subtype_metrics(subtype_directory)
     subtype_data.drop(labels=['NF1'], axis=0, inplace=True)
     subtype_data['shade'] = primary_data.loc[subtype_data.primary_type, 'hue'].values
@@ -598,12 +598,12 @@ def compute_metrics():
                               columns=['pos pred value', 'specificity', 'sensitivty', 'samples'], index=['Subtypes'])
     display(HTML(subtype_df.to_html()))
 
-    ovarian_table = '../../models/subtype_ext_val/ovarian_aocs_contingency.csv'
-    ovarian_metrics = '../../models/subtype_ext_val/ovarian_aocs_metrics.csv'
+    ovarian_table = 'models/subtype_ext_val/ovarian_contingency_table.csv'
+    ovarian_metrics = 'models/subtype_ext_val/ovarian_performance_metrics.csv'
     median_metrics('Ovarian subtype', ovarian_table, ovarian_metrics, sort=False, group=False)
 
-    breast_table = '../../models/subtype_ext_val/breast_contingency.csv'
-    breast_metrics = '../../models/subtype_ext_val/breast_metrics.csv'
+    breast_table = 'models/subtype_ext_val/breast_contingency_table.csv'
+    breast_metrics = 'models/subtype_ext_val/breast_performance_metrics.csv'
     median_metrics('Breast subtype', breast_table, breast_metrics, sort=False, group=False)
 
 
@@ -632,8 +632,8 @@ def setup_fig2():
 
 
 def generate_fig2():
-    table_file = '../../models/primary_type/rf_contingency.csv'
-    metrics_file = '../../models/primary_type/rf_metrics.csv'
+    table_file = 'models/primary_type/rf_contingency.csv'
+    metrics_file = 'models/primary_type/rf_metrics.csv'
 
     table = read_table(table_file)
     table = sort_rectangular_table(clean_table(table), primary_data.index)
@@ -676,7 +676,7 @@ def generate_fig2():
 
 # # Figure 3 - Dimensionality reduction
 def generate_fig3():
-    umap_data = read_table('../../data/img/umap_2d.csv')
+    umap_data = read_table('data/img/umap_2d.csv')
 
     umap_data['hue'] = umap_data.label.map(lambda lab: primary_data.loc[lab, 'hue'])
     umap_data['shade'] = umap_data.label.map(lambda lab: primary_data.loc[lab, 'shade'])
@@ -752,8 +752,8 @@ def setup_fig4():
 
 
 def generate_fig4():
-    metrics_file = '../../models/primary_type_ext_val/gse2109_metrics.csv'
-    table_file = '../../models/primary_type_ext_val/gse2109_contingency.csv'
+    metrics_file = 'models/primary_type_ext_val/gse2109_metrics.csv'
+    table_file = 'models/primary_type_ext_val/gse2109_contingency.csv'
 
     table = read_table(table_file)
     table = clean_table(table, blacklist=['LGG/GBM'])
@@ -820,9 +820,9 @@ def setup_fig5():
 
 
 def generate_fig5():
-    metrics_file = '../../models/primary_type_ext_val/gse18549_metrics.csv'
-    table_file = '../../models/primary_type_ext_val/gse18549_contingency.csv'
-    schematic_file = '../../data/img/metastasis_schematic_simple_v2.tiff'
+    metrics_file = 'models/primary_type_ext_val/gse18549_metrics.csv'
+    table_file = 'models/primary_type_ext_val/gse18549_contingency.csv'
+    schematic_file = 'data/img/metastasis_schematic_simple_v2.tiff'
 
     table = read_table(table_file)
     table = clean_table(table, blacklist=[])
@@ -903,9 +903,9 @@ def setup_fig6():
 
 
 def generate_fig6():
-    metrics_file = '../../models/primary_type_ext_val/pdx_metrics_new.csv'
-    table_file = '../../models/primary_type_ext_val/pdx_contingency_new.csv'
-    pdx_schematic = '../../data/img/pdx_schematic_2.tiff'
+    metrics_file = 'models/primary_type_ext_val/pdx_metrics_new.csv'
+    table_file = 'models/primary_type_ext_val/pdx_contingency_new.csv'
+    pdx_schematic = 'data/img/pdx_schematic_2.tiff'
 
     table = read_table(table_file)
     table = clean_table(table, blacklist=['OV'])
@@ -972,7 +972,7 @@ def setup_fig7():
 
 
 def generate_fig7():
-    subtype_directory = '../../models/subtype/'
+    subtype_directory = 'models/subtype/'
     subtype_data = load_subtype_metrics(subtype_directory)
     subtype_data.drop(labels=['NF1'], axis=0, inplace=True)
     subtype_data['shade'] = primary_data.loc[subtype_data.primary_type, 'hue'].values
@@ -989,10 +989,10 @@ def generate_fig7():
     specificity = subtype_data['specificity']
     n_samples = subtype_data['n_samples']
 
-    ovarian_table = '../../models/subtype_ext_val/ovarian_aocs_contingency.csv'
-    ovarian_metrics = '../../models/subtype_ext_val/ovarian_aocs_metrics.csv'
-    breast_table = '../../models/subtype_ext_val/breast_contingency.csv'
-    breast_metrics = '../../models/subtype_ext_val/breast_metrics.csv'
+    ovarian_table = 'models/subtype_ext_val/ovarian_aocs_contingency.csv'
+    ovarian_metrics = 'models/subtype_ext_val/ovarian_aocs_metrics.csv'
+    breast_table = 'models/subtype_ext_val/breast_contingency.csv'
+    breast_metrics = 'models/subtype_ext_val/breast_metrics.csv'
 
     ovarian_table = clean_table(read_table(ovarian_table))
     breast_table = clean_table(read_table(breast_table))

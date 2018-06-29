@@ -8,7 +8,7 @@ PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 PROFILE = default
 PROJECT_NAME = tcga_subtype_classification
 PYTHON_INTERPRETER = python3
-R_INTERPRETER = R
+R_INTERPRETER = Rscript
 
 ifeq (,$(shell which conda))
 	HAS_CONDA=False
@@ -27,11 +27,16 @@ requirements: test_environment
 
 ## Make Dataset
 data: requirements
-	$(PYTHON_INTERPRETER) src/data/make_dataset.py
+	$(R_INTERPRETER) src/data/download.R
+	$(R_INTERPRETER) src/data/combine_datasets.R
+	$(R_INTERPRETER) src/data/convert_to_eset.R
+	$(R_INTERPRETER) src/data/convert_eset_to_feather.R
+	$(R_INTERPRETER) src/data/generate_dataframe_prelim_subtypes_with_TCGA_data.R
 
 ## Train models and make predictions
 models: data
 	$(R_INTERPRETER) src/models/make_models.R
+	$(R_INTERPRETER) src/models/extract_results.R
 
 ## Create visualizations
 viz: models
