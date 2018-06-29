@@ -1,0 +1,34 @@
+abbrev,name,n_samples,organ_system,shade,hue,organ_x,organ_y,shadow_x,shadow_y
+GBM,Glioblastoma multiforme,153,cns,#5254a3,#393b79,1330,350,438.22564102564104,66.1867469879518
+LGG,Brain Lower Grade Glioma,516,cns,#5254a3,#6b6ecf,1500,400,514.9435897435898,88.77710843373495
+COAD,Colon adenocarcinoma,285,core_gastro,#8ca252,#637939,1780,2200,641.3025641025641,902.0301204819276
+ESCA,Esophageal carcinoma,184,core_gastro,#8ca252,#8ca252,1410,1100,474.3282051282051,405.04216867469876
+READ,Rectum adenocarcinoma,94,core_gastro,#8ca252,#b5cf6b,1480,2560,505.9179487179488,1064.6807228915661
+STAD,Stomach adenocarcinoma,415,core_gastro,#8ca252,#cedb9c,1530,2010,528.4820512820513,816.1867469879518
+CHOL,Cholangiocarcinoma,36,developmental_gastro,#31a354,#31a354,1360,1870,451.7641025641026,752.933734939759
+LIHC,Liver hepatocellular carcinoma,371,developmental_gastro,#31a354,#74c476,1270,1750,411.14871794871794,698.7168674698795
+PAAD,Pancreatic adenocarcinoma,178,developmental_gastro,#31a354,#a1d99b,1430,1940,483.35384615384623,784.5602409638553
+ACC,Adrenocortical carcinoma,79,endocrine,#756bb1,#756bb1,1650,1900,582.6358974358975,766.4879518072289
+THCA,Thyroid carcinoma,501,endocrine,#756bb1,#9e9ac8,1490,1020,510.43076923076933,368.89759036144574
+BRCA,Breast invasive carcinoma,1093,gynecologic,#ce6dbd,#7b4173,1700,1530,605.2,599.3192771084337
+CESC,Cervical squamous cell carcinoma and endocervical adenocarcinoma,304,gynecologic,#ce6dbd,#a55194,1435,2600,485.6102564102565,1082.7530120481927
+OV,Ovarian serous cystadenocarcinoma,303,gynecologic,#ce6dbd,#ce6dbd,1580,2360,551.0461538461539,974.3192771084337
+UCEC,Uterine Corpus Endometrial Carcinoma,176,gynecologic,#ce6dbd,#de9ed6,1440,2530,487.8666666666667,1051.1265060240962
+HNSC,Head and Neck squamous cell carcinoma,520,head_neck,#bdbdbd,#bdbdbd,1270,800,411.14871794871794,269.5
+DLBC,Lymphoid Neoplasm Diffuse Large B-cell Lymphoma,48,hematologic,#ad494a,#843c39,1490,1550,510.43076923076933,608.3554216867469
+LAML,Acute Myeloid Leukemia,173,hematologic,#ad494a,#ad494a,1490,1530,510.43076923076933,599.3192771084337
+THYM,Thymoma,120,hematologic,#ad494a,#d6616b,1450,1380,492.3794871794872,531.5481927710842
+SKCM,Skin Cutaneous Melanoma,471,melanocytic,#fd8d3c,#fdae6b,790,2250,194.53333333333336,924.6204819277108
+UVM,Uveal Melanoma,80,melanocytic,#fd8d3c,#fdd0a2,1340,570,442.7384615384616,165.58433734939757
+PCPG,Pheochromocytoma and Paraganglioma,179,neural_crest,#636363,#636363,1570,1830,546.5333333333334,734.8614457831325
+SARC,Sarcoma,259,soft_tissue,#bcbddc,#bcbddc,1690,3200,600.6871794871795,1353.8373493975903
+UCS,Uterine Carcinosarcoma,57,soft_tissue,#bcbddc,#dadaeb,1380,2420,460.7897435897437,1001.4277108433735
+LUAD,Lung adenocarcinoma,515,thoracic,#6baed6,#3182bd,1250,1230,402.12307692307695,463.77710843373495
+LUSC,Lung squamous cell carcinoma,501,thoracic,#6baed6,#6baed6,1380,1450,460.7897435897437,563.1746987951807
+MESO,Mesothelioma,87,thoracic,#6baed6,#9ecae1,1200,1600,379.5589743589744,630.9457831325301
+BLCA,Bladder Urothelial Carcinoma,408,urologic,#e7ba52,#8c6d31,1360,2560,451.7641025641026,1064.6807228915661
+KICH,Kidney Chromophobe,66,urologic,#e7ba52,#bd9e39,1660,2030,587.1487179487181,825.222891566265
+KIRC,Kidney renal clear cell carcinoma,533,urologic,#e7ba52,#e7ba52,1640,1910,578.123076923077,771.0060240963854
+KIRP,Kidney renal papillary cell carcinoma,290,urologic,#e7ba52,#e7cb94,1590,1960,555.5589743589744,793.5963855421686
+PRAD,Prostate adenocarcinoma,497,urologic,#e7ba52,#e6550d,1490,2760,510.43076923076933,1155.0421686746986
+TGCT,Testicular Germ Cell Tumors,150,urologic,#e7ba52,#fd8d3c,1380,3000,460.7897435897437,1263.4759036144578
