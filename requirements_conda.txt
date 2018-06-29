@@ -1,0 +1,8 @@
+r
+r-caret
+r-e1071
+r-randomForest
+r-party
+r-gbm
+r-xtable
+bioconductor-biobase

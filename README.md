@@ -1,67 +1,66 @@
-tcga_subtype_classification
+TGCA subtype classification
 ==============================
+> Detecting cancer subtypes with machine learning.
 
-Detecting cancer subtypes with machine learning
+This repository contains the data, code, and manuscript accompanying the
+preprint:
 
-Project Organization
-------------
+> WF Flynn, S Namburi, CA Paisie, HV Reddi, S Li, KRK Murthy, J Georgy.
+> "Pan-cancer machine learning predictors of tissue of origin and molecular
+> subtype." Submitted, 2018.
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
+currently available at
+[bioRxiv](https://www.biorxiv.org/content/early/2018/05/30/333914).
 
+## License
+The code present in this repository is free to use for academic and
+non-commercial use, and is subject to the following [License](LICENSE) (also
+available in [`docx` format](LICENSE.docs).
 
---------
+## Project Organization
+This project is organized using a subset of the [Cookiecutter Data
+Science](https://drivendata.github.io/cookiecutter-data-science/#directory-structure)
+project structure.
 
-Running iPython/Jupyter notebooks
----------------------------------
-Run
+All data and results, and most visualizations can be generated from scratch
+using the `make` command.  A full build of the project can be done with
 
 ```bash
-jupyter notebook notesbooks/notebook_name.ipynb
+make requirements
+make data
+make models
+make viz
 ```
-or, alternatively, run `jupyter notebook` and navigate using the file browser to
-`notebooks/notebook_name.ipynd`.
 
+## Requirements
+In order to produce the models and visualizations, this project requires
+`conda`, through which `R` and `Python 3.6` will be installed along with their
+needed modules/packages.
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+Running `make requirements` will:
+
+* Create and activate a conda environment named `tcga_subtype_classification`.
+* Install `R` and `Python 3.6` along with the packages listed in
+  `requirements.txt` and `requirements_conda.txt`.
+* Test these installations.
+
+If you do not have a `conda` installation, you can install a minimal
+installation through [`miniconda`](https://conda.io/miniconda.html).
+
+## Figures and web application
+Figures present in the manuscript preprint can be generated automatically using
+`make viz` or interactively using the notebooks (symlinked) in the `/notebooks/`
+root directory.
+
+We've also include a simple interactive web vizualization that is currently
+hosted at [Pan Cancer Classification Portal](https://pccportal.jax.org).  You
+can host your own version locally using the code in the `/app/` root directory:
+
+```bash
+cd app/
+python3 run_flask.py [--host IP] [--port PORT]
+```
+
+<p><small>Project based on the <a target="_blank"
+href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data
+science project template</a>. #cookiecutterdatascience</small></p>
