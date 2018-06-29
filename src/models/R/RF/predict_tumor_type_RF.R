@@ -10,8 +10,8 @@ library(gbm)
 
 set.seed= 1024
 
-source("../auxilary_functions.R")
-load("../../../../data/raw/combined_data.rdata")
+source("src/models/auxilary_functions.R")
+load("data/raw/combined_data.rdata")
 
 eset.1 <- combined.eset[,combined.eset$sample.type %in% c("01","03")]
 eset.2 <- combined.eset[,combined.eset$tumor.type =="SKCM" & combined.eset$sample.type == "06"]
@@ -19,22 +19,18 @@ eset <- Biobase::combine(eset.1,eset.2)
 
 tumor.types <- unique(eset$tumor.type)
 
-exp <- exprs(eset)
+exp <- Biobase::exprs(eset)
 exp.log2 <- log2(exp +1)
 r.max <- apply(exp.log2,1,max)
 r.sd  <- apply(exp.log2,1,sd)
 exp.sel <- exp.log2[r.max > 8 & r.sd > 1,]
 
-true.label <- eset$tumor.type
+true.label <- factor(eset$tumor.type)
 all.dat <- data.frame(t(exp.sel) ,tumor.type = eset$tumor.type)
 
-K = 3 
+K = 3
 flds <- createFolds(1:nrow(all.dat), k = K, list = TRUE, returnTrain = FALSE)
 RF.predicted.label = character(length = nrow(all.dat))
-KNN.predicted.label = character(length = nrow(all.dat))
-DLDA.predicted.label = character(length = nrow(all.dat))
-SVM.predicted.label = character(length = nrow(all.dat))
-GBM.predicted.label = character(length = nrow(all.dat))
 cl.idx <- which(colnames(all.dat) == "tumor.type")
 
 for(i in 1:K)
@@ -45,14 +41,27 @@ for(i in 1:K)
 	test.all <- all.dat[test.idx,-c(cl.idx)]
 	train <- train.all[,c(features,"tumor.type")]
 	test  <- test.all[,features]
-	model <- randomForest(tumor.type  ~ . , data = train,ntree= 1000,mtry=31)
+	model <- randomForest(tumor.type  ~ ., data = train, ntree = 1000, mtry = 31)
 	RF.pred <- predict(model, newdata = test)
 	RF.predicted.label[test.idx] <- as.character(RF.pred)
 }
 
 RF.predicted.label = factor(RF.predicted.label)
-RF.res <- confusionMatrix(RF.predicted.label,true.label)
+RF.res <- confusionMatrix(RF.predicted.label, true.label)
+save(RF.res, file = "models/primary_type/final_model_cv.rdata")
 
-write.csv(RF.res[[2]],"contingency_table_RF.csv")
-write.csv(RF.res[[4]],"preformance_metrics_RF.csv")
 
+# final model
+set.seed= 1024
+
+exp.sel.all <- exp.log2[r.max > 8 & r.sd > 1,]
+p.anns <- featureData(eset)@data
+probe.anns <- p.anns[rownames(exp.sel.all),]
+probe.anns.sel <- probe.anns[probe.anns$symbol != "?",]
+exp.sel <- exp.sel.all[rownames(probe.anns.sel),]
+rownames(exp.sel) <- probe.anns.sel$symbol
+true.label <- factor(eset$tumor.type)
+all.dat <- data.frame(t(exp.sel) ,tumor.type = eset$tumor.type)
+
+final.model <- randomForest(tumor.type  ~ ., data = all.dat, ntree = 1000, mtry = 31)
+save(final.model, file = "models/primary_type/final_model.rdata")
