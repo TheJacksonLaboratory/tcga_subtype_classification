@@ -6,16 +6,16 @@ This repository contains the data, code, and manuscript accompanying the
 preprint:
 
 > WF Flynn, S Namburi, CA Paisie, HV Reddi, S Li, KRK Murthy, J Georgy.
-> "Pan-cancer machine learning predictors of tissue of origin and molecular
-> subtype." Submitted, 2018.
+> "Trace the cancer of unknown primary origin and molecular subtype via 
+> machine learning." Submitted, 2018.
 
 currently available at
-[bioRxiv](https://www.biorxiv.org/content/early/2018/05/30/333914).
+[bioRxiv](https://www.biorxiv.org/content/early/2018/07/05/333914).
 
 ## License
 The code present in this repository is free to use for academic and
 non-commercial use, and is subject to the following [License](LICENSE) (also
-available in [`docx` format](LICENSE.docs).
+available in [`docx` format](LICENSE.docs)).
 
 ## Project Organization
 This project is organized using a subset of the [Cookiecutter Data
@@ -33,6 +33,13 @@ make viz
 ```
 
 ## Requirements
+**Note: I've run into a problem building the R portion of the environment
+on machines that have existing R installations.  Running `make requirements`
+may corrupt your existing R installation.  See 
+[this conda issue](https://github.com/conda-forge/r-base-feedstock/issues/37) 
+for more info.  Looking into a work-arounds...**
+
+
 In order to produce the models and visualizations, this project requires
 `conda`, through which `R` and `Python 3.6` will be installed along with their
 needed modules/packages.
