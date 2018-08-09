@@ -1,6 +1,6 @@
 TGCA subtype classification
 ==============================
-> Detecting cancer subtypes with machine learning.
+Detecting cancer subtypes with machine learning.
 
 This repository contains the data, code, and manuscript accompanying the
 preprint:
