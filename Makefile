@@ -21,9 +21,8 @@ endif
 #################################################################################
 
 ## Install Python Dependencies
-requirements: test_environment
-	pip install -U pip setuptools wheel
-	pip install -r requirements.txt
+requirements: create_environment test_environment
+	: "empty"
 
 ## Make Dataset
 data: requirements
@@ -55,9 +54,9 @@ lint:
 create_environment:
 ifeq (True,$(HAS_CONDA))
 	@echo ">>> Detected conda, creating conda environment."
-	conda create --name $(PROJECT_NAME) python=3.6
-	@echo ">>> New conda env created. Activating with:\nsource activate $(PROJECT_NAME)"
-	@bash -c "source activate $(PROJECT_NAME)"
+	#conda create --name $(PROJECT_NAME) python=3.6
+	conda env create -f environment.yml
+	@echo ">>> New conda env created. Activate in your shell with:\n\tsource activate $(PROJECT_NAME)"
 else
 	@echo ">>> Please install conda via anaconda or miniconda."
 	@echo ">>> See here: https://conda.io/miniconda.html for more details."
@@ -65,15 +64,10 @@ else
 endif
 
 ## Test python environment is setup correctly
-test_environment: install_conda_deps
-	$(PYTHON_INTERPRETER) test_environment.py
-	R CMD javareconf > /dev/null 2>&1 || true
-	$(R_INTERPRETER) test_environment.R
-
-## Install conda packages
-install_conda_deps:
-	conda config --add channels conda-forge defaults r bioconda
-	conda install -n $(PROJECT_NAME) --file=requirements_conda.txt
+test_environment:
+	source activate $(PROJECT_NAME) && $(PYTHON_INTERPRETER) test_environment.py && (R CMD javareconf > /dev/null 2>&1 || true) && $(R_INTERPRETER) test_environment.R
+	@echo ">>> R development environment passes all tests!"
+	@echo ">>> Conda env is functional. Activate in your shell with:\n\tsource activate $(PROJECT_NAME)"
 
 
 #################################################################################
