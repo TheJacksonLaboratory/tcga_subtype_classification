@@ -13,10 +13,8 @@ import Config
 import pickle
 
 from imblearn.over_sampling import SMOTE
-#from Model import quantileNormalize
 
 
-#tf.enable_eager_execution()
     
 dataDir = '../DataPool/'
 df = pd.read_csv(dataDir+'tcga_training.csv', index_col = 0)
@@ -221,19 +219,5 @@ print("meta labels:", string_labels_meta)
 print("meta data size:", meta_X.shape)
 print("meta label size:", meta_Y.shape)
 print(meta_X)
-
-
-
-#df_test = pd.DataFrame({'C1': {'A': 5, 'B': 2, 'C': 3, 'D': 4},
-#                   'C2': {'A': 4, 'B': 1, 'C': 4, 'D': 2},
-#                   'C3': {'A': 3, 'B': 4, 'C': 6, 'D': 8}})
-#                   
-#df_ref = pd.DataFrame({'C1': {'A': 0, 'B': 2, 'C': 0, 'D': 4},
-#                   'C2': {'A': 0, 'B': 1, 'C': 0, 'D': 2},
-#                   'C3': {'A': 0, 'B': 0, 'C': 6, 'D': 0}})
-#                   
-#result = quantileNormalize(df_test, df_ref)
-#print(result)
-
 
 

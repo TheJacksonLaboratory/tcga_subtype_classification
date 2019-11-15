@@ -19,7 +19,7 @@ from keras.optimizers import Nadam, Adam
 import pickle
 import shutil
 
-sys.path.insert(1, '/projects/compsci/Yue/SubtypeClassifier/Helpers/')
+sys.path.insert(1, '../Helpers/')
 import Config
 import Model
 import DataRna as Data

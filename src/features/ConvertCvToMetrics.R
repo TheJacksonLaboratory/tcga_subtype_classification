@@ -1,5 +1,4 @@
 library(caret)
-setwd("~/NetBeansProjects/JaxHelixCompsci/SubtypeClassifier")
 #Inception
 #fileName <- "Confusion_matrix_CV_InceptionNet1d_diverse_DEG_Feature_40_deep_orderChromo_scan.csv"
 #fileName <- "Confusion_matrix_Meta_InceptionNet1d_diverse_DEG_Feature_40_deep_orderChromo_scan.csv"

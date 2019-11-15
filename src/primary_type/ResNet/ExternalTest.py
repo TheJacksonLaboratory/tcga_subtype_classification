@@ -18,7 +18,7 @@ import talos as ta
 import pickle
 from keras.optimizers import SGD
 
-sys.path.insert(1, '/projects/compsci/Yue/SubtypeClassifier/Helpers/')
+sys.path.insert(1, '../Helpers/')
 from Model import ExternalValidate, cross_validate_keras, reshape_data_2d, reset_weights
 
 

@@ -1,4 +1,4 @@
-load("~/NetBeansProjects/JaxHelixCompsci/SubtypeClassifier/visualization/cup_project/subtype_predictor_results.rdata")
+load("../visualization/cup_project/subtype_predictor_results.rdata")
 output <- NULL
 max_length <- 5926
 for(i in 1:length(model.list)){

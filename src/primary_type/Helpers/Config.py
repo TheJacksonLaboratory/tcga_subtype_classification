@@ -17,8 +17,6 @@ if args.data_set:
 else:
     print('Please add dataset name as --data_set=')
     #running on laptop
-    os.chdir('/Users/c-zhaoy/NetBeansProjects/JaxHelixCompsci/SubtypeClassifier')
-
 
 
 if args.treat:
