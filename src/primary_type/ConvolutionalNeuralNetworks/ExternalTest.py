@@ -47,6 +47,11 @@ ExternalValidate(test_x, Data.clinical_Y, 'Clinical', scan_object.model)
 test_x = reshape_data_1d(Data.meta_X)
 ExternalValidate(test_x, Data.meta_Y, 'Meta', scan_object.model)
 
+#####save the model
+from keras.models import load_model
+
+keras_model.save('cnn_1d_tumor_type_t_'+Config.treat+'.h5')  # creates a HDF5 file 'my_model.h5'
+del keras_model  # deletes the existing model
 
 
 print("--- %s seconds ---" % (tt.time() - start_time))
